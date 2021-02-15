@@ -1,18 +1,20 @@
 import React from 'react';
-import { DropdownToggle, NavItem, UncontrolledDropdown } from 'reactstrap';
+import { DropdownToggle, NavItem, UncontrolledDropdown, DropdownMenu } from 'reactstrap';
 import MenuItem from './MenuItem';
 
 const SubMenu = ({children}) => {
-    debugger;
+    // debugger;
     return (
-        children.map((child) => {
+        children.map((child, index) => {
             return (
                 child.child.length === 0 ?
-                <NavItem>{child.name}</NavItem>                
+                <NavItem >{child.name}</NavItem>                
                 :
-                <UncontrolledDropdown nav inNavbar>
+                <UncontrolledDropdown nav inNavbar >
                     <DropdownToggle nav caret >{child.name}</DropdownToggle>
-                    {child.child.map(data => <MenuItem itemData={data}/>)}
+                    <DropdownMenu right>
+                        {child.child.map((data, index) => <MenuItem key={data.name + index} itemData={data} />)}
+                    </DropdownMenu>
                 </UncontrolledDropdown>
             )
         })
