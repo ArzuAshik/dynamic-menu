@@ -7,7 +7,7 @@ export const menuData = [
         name: 'Institute Info',
         child: [
             {
-                name: 'Academic Info',
+                name: 'Administration',
                 child: [
                     {name: "WelcomeSpeech", child: []},
                     {name: "Comittee", child: []},
